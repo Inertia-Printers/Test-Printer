@@ -100,6 +100,8 @@ def exit_handler():
 atexit.register(exit_handler)
 
 def main():
+   global counter
+
    global t
    global state
    global timer_progress
@@ -117,6 +119,7 @@ def main():
                firebase.put(database_url, uuid+ "/status", "Printing")
                # global t
                print("T:" , t)
+               firebase.put(database_url, uuid+"/print/command", "")
                state = "printing"
                inter=setInterval(0.2,action, after)
 
